@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Resume Parser</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+      /* font-family: 'Roboto', sans-serif; */
+      font-family: 'Segoe UI', sans-serif;
+      /* background-color: #f8f9fa; */
+      color: white;
+
+
+    }
+
+
+    /* --------------------------------------------navbar ---------------------------------------------------- */
+
+    /* Layout Container */
+    .containers {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .containers {
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+
+    .navbar {
+      background: transparent;
+      width: 100%;
+      padding: 10px 0;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid white;
+      box-shadow: 0 2px 5px rgba(58, 56, 56, 0.689);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .navbar-brand span {
+      color: goldenrod;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: black;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: black;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4CAF50;
+    }
+
+    /* Responsive Behavior */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+
+
+
+
+
+    /* -------------------------------------------------------------------login page----------------------------------------------------------- */
+
+
+    .login-body {
+
+      font-family: 'Poppins', sans-serif;
+      /* background: linear-gradient(to top, #245aac, #b9c2f3); */
+      background-color: #d7f1f3;
+      /* background: linear-gradient(to top, rgba(92, 202, 202, 0.911), #ffffffe5); */
+      /* background-image: url('../images/download.jpeg'); */
+      /* background-size: cover; */
+      /* height: 100vh; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* padding: 1rem; */
+    }
+
+    .login-body-log {
+
+      font-family: 'Poppins', sans-serif;
+      /* background: linear-gradient(to top, #d6d3d3bd, rgba(92, 202, 202, 0.911)); */
+      /* background-image: url('../images/modern.jpeg'); */
+      background-color: #d7f1f3;
+
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container-log {
+      display: flex;
+      margin-top: 4rem;
+      /* width: 100vw; */
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.979);
+      border-radius: 14px;
+      color: white;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      -ms-border-radius: 14px;
+      -o-border-radius: 14px;
+    }
+
+    .container {
+      display: flex;
+      margin-top: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      /*padding: 2.5rem;
+  */
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.979);
+      border-radius: 14px;
+      color: white;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      -ms-border-radius: 14px;
+      -o-border-radius: 14px;
+    }
+
+    .img-container {
+      text-align: left;
+      background: linear-gradient(135deg, #4ed3d9, #d7f1f3);
+      border-radius: 14px 85% 0 14px;
+      -webkit-border-radius: 14px 85% 0 14px;
+      -moz-border-radius: 14px 85% 0 14px;
+      -ms-border-radius: 14px 85% 0 14px;
+      -o-border-radius: 14px 85% 0 14px;
+    }
+
+    .img-container h2 {
+      text-align: left;
+      padding: 1rem 0 0 8.5rem;
+      left: 50px;
+      color: #117477;
+      font-weight: 700;
+
+    }
+
+    .img-container img {
+      height: 19rem;
+      width: 30rem;
+      border-radius: 12px;
+      padding: 1.5rem 4.5rem 1.5rem 4.5rem;
+      /*padding-right: 2.5rem;
+  */
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      -ms-border-radius: 12px;
+      -o-border-radius: 12px;
+      -webkit-border-radius: 12px;
+    }
+
+    .img-container .wcl {
+      padding: 0 0 0 1.5rem;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+
+    }
+
+    .img-container .dis {
+      padding: 0 0 2rem 1.5rem;
+      font-size: 14px;
+      color: #333;
+
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 2.5rem;
+      font-size: 35px;
+      color: #33b6ba;
+
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input::placeholder {
+      color: #33b6ba;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      border: none;
+      outline: none;
+      border-radius: 0;
+      width: 18rem;
+      border-bottom: 2px solid #33b6ba;
+      margin-bottom: 25px;
+      padding: 7px 0;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #16a01a;
+    }
+
+    button[type="submit"] {
+      padding: 0.75rem;
+      width: 18rem;
+      margin: 2rem 0 0 3rem;
+      background-color: #33b6ba;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #6ec472;
+    }
+
+
+    .input-icon {
+      position: relative;
+      width: 18rem;
+      margin: 0 auto 25px;
+    }
+
+    .input-icon i {
+      position: absolute;
+      top: 28%;
+      left: 5px;
+      transform: translateY(-50%);
+      color: #33b6ba;
+      font-size: 16px;
+    }
+
+    .input-icon input {
+      padding-left: 30px;
+    }
+
+
+    .error {
+      color: red;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .login-body-log {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 4rem 0 5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 250vh;
+
+      }
+
+      .container-log {
+        flex-direction: column;
+      }
+
+      .login-container {
+        padding: 0 60px 30px 0;
+
+      }
+
+      .login-container input {
+        width: 18rem;
+      }
+
+      .login-container h2 {
+        margin-left: 50px;
+      }
+
+      .login-container button {
+        width: 80%;
+        margin-top: -1rem;
+        /* height: 3rem; */
+        padding: 1rem 2rem;
+      }
+
+      .img-container {
+        display: none;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="login-body-log">
+    <!-- -------------------------------------navbar--------------------------------- -->
+
+
+    <nav class="navbar">
+      <div class="containers navbar-content">
+        <a href="#" class="navbar-brand"><span>RESUME</span> PARSER</a>
+
+        <button class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <!-- <a href="/about2">About</a> -->
+          <!-- <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a> -->
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      const toggleButton = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      toggleButton.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    </script>
+
+
+    <!-- ---------------------------------------------------------------login page -------------------------------------------------------- -->
+
+    <div class="container-log">
+      <div class="img-container">
+        <h2>RESUME PARSER</h2>
+        <!-- <img src="{{ url_for('static', filename='images/image.png') }}" alt=""> -->
+        <img src="/static/images/image.png" alt="">
+
+        <p class="wcl">Welcome</p>
+        <p class="dis">From raw resumes to refined insights.
+          Let automation power your recruitment decisions.</p>
+      </div>
+      <div class="login-container">
+        <h2>Login</h2>
+        <!-- {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %} -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="error">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required>
+          </div>
+          <div class="input-icon password-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CV Parser & Shortlister</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <!-- Custom Inline CSS -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+
+    body {
+      /* font-family: 'Roboto', sans-serif; */
+      font-family: 'Segoe UI', sans-serif;
+      /* background-color: #f8f9fa; */
+      color: white;
+
+      background: linear-gradient(135deg, #e9f0ff, #f6faff);
+
+    }
+
+    /* ------------------------------------------------navbar--------------------------------------------- */
+    .login-body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d7f1f3;
+      border-bottom: 1px solid white;
+      box-shadow: rgba(0, 0, 0, 0.644) 0px 1px 9px 0px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* padding: 1rem; */
+    }
+
+    .containers {
+      width: 85%;
+      height: 40px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+
+    /* --------------------------------------------------------navbar-------------- */
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      width: 100%;
+      padding: 10px 0;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid white;
+      box-shadow: 0 2px 5px rgba(58, 56, 56, 0.689);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    .container {
+      width: 85%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .navbar-brand span {
+      color: goldenrod;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #4CAF50;
+    }
+
+    /* Hamburger toggle button - hidden on desktop */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      position: relative;
+      width: 30px;
+      height: 25px;
+      z-index: 1100;
+    }
+
+    /* Hamburger lines */
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      display: block;
+      background-color: black;
+      height: 3px;
+      width: 100%;
+      border-radius: 2px;
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hamburger::before {
+      content: '';
+      top: -8px;
+    }
+
+    .hamburger::after {
+      content: '';
+      top: 8px;
+    }
+
+    /* When active, toggle hamburger into X */
+    .nav-toggle.active .hamburger {
+      background-color: transparent;
+    }
+
+    .nav-toggle.active .hamburger::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .nav-toggle.active .hamburger::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+        padding: 0 1rem;
+      }
+
+      /* Show hamburger toggle on mobile */
+      .nav-toggle {
+        display: block;
+      }
+
+      /* Hide nav-links by default */
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        /* Height of navbar */
+        right: 0;
+        height: calc(100vh - 60px);
+        width: 220px;
+        background-color: white;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1050;
+      }
+
+      /* When toggled, show menu */
+      .nav-links.open {
+        transform: translateX(0);
+      }
+    }
+
+
+    /* -------------------------------------------------- Hero Section------------------------------------- */
+    .hero-section1 {
+      height: 100vh;
+      width: 100%;
+      /* background-image: url('../images/download.jpeg');
+  background-size: cover; */
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 0;
+
+    }
+
+    .hero-flex1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .hero-text1 {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      color: #333;
+    }
+
+    .hero-text1 h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .hero-text1 h1::first-letter {
+      color: goldenrod;
+      font-size: 3.5rem;
+    }
+
+    .hero-text1 p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image1 {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .hero-image1 img {
+      width: 100%;
+      height: 400px;
+      max-width: 500px;
+      margin-top: 1rem;
+      /* Change this to your desired max size */
+      border-radius: 10px;
+    }
+
+    .hero-text1 a {
+      text-decoration: none;
+    }
+
+    .cta-button1 {
+      background-color: #33b6ba;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+
+      transition: background-color 0.3s ease;
+      -webkit-transition: background-color 0.3s ease;
+      -moz-transition: background-color 0.3s ease;
+      -ms-transition: background-color 0.3s ease;
+      -o-transition: background-color 0.3s ease;
+    }
+
+    .cta-button1:hover {
+      background-color: #45a049;
+      color: white;
+    }
+
+
+
+    .custom-shape-divider-bottom-1747491087 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1747491087 svg {
+      position: relative;
+      display: block;
+      width: calc(103% + 1.3px);
+      height: 115px;
+    }
+
+    .custom-shape-divider-bottom-1747491087 .shape-fill {
+      fill: #6fb7c4de;
+    }
+
+    /* Responsive for devices smaller than 768px */
+    @media (max-width: 768px) {
+      .hero-flex1 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-text1,
+      .hero-image1 {
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+        padding: 10px 20px;
+      }
+
+      .hero-text1 h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-text1 h1::first-letter {
+        font-size: 2.5rem;
+      }
+
+      .hero-text1 p {
+        font-size: 1rem;
+      }
+
+      .hero-image1 img {
+        height: auto;
+        max-width: 100%;
+        border-radius: 8px;
+      }
+
+      .cta-button1 {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      /* Adjust the shape divider if needed */
+      .custom-shape-divider-bottom-1747491087 svg {
+        height: 80px;
+      }
+    }
+
+    /* For very small screens (mobile portrait) */
+    @media (max-width: 400px) {
+      .hero-text1 h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-text1 h1::first-letter {
+        font-size: 2rem;
+      }
+
+      .hero-text1 p {
+        font-size: 0.9rem;
+      }
+
+      .cta-button1 {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ----------------------------------------------grid ------------------------------------------- */
+    .grid_card {
+      width: 87vw;
+      margin: 5rem auto;
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      flex-wrap: wrap;
+      border-radius: 15px;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 7px 29px 0px;
+      color: black;
+      gap: 2rem;
+      /* Add spacing between items for all screens */
+    }
+
+    .grid_card .outer {
+      width: 300px;
+      height: 190px;
+      padding: 1rem 1.5rem 2rem 1.5rem;
+      border-radius: 15px;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 15px 40px 0px;
+      margin: 1rem;
+      background-color: #f5f5f5;
+    }
+
+    .grid_card .outer h3 {
+      font-size: 20px;
+      color: rgb(31, 128, 173);
+      margin-bottom: 0.5rem;
+      cursor: default;
+    }
+
+    .grid_card .outer h3:hover {
+      color: #4569a0;
+    }
+
+    .grid_card .outer p {
+      font-size: 16px;
+      margin: 0;
+      cursor: default;
+    }
+
+    .grid_card .outer p:hover {
+      color: #457aa0;
+    }
+
+    /* Responsive: Mobile (< 768px) */
+    @media (max-width: 768px) {
+      .grid_card {
+        width: 95vw;
+        margin: 2rem auto;
+        padding: 2rem 1rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid_card .outer {
+        width: 90%;
+        height: auto;
+        margin: 1rem auto;
+      }
+    }
+
+    /* Responsive: Mid-range (MacBook Air, tablets, etc.) */
+    @media (min-width: 769px) and (max-width: 1280px) {
+      .grid_card {
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .grid_card .outer {
+        width: 45%;
+        height: auto;
+      }
+    }
+
+
+    /* <!-- ------------------------------------= section  features -------------------  -- --> */
+    .features {
+      margin: 8rem auto 0rem auto;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 1200px;
+      width: 90vw;
+    }
+
+    /* Main wrapper for the feature section */
+    .feature_outer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    /* Left carousel/image section */
+    .left_feature {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .carousel-track img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* Right content section */
+    .right_feature {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: black;
+      padding: 1rem;
+    }
+
+    .right_feature h2 {
+      font-weight: 700;
+      font-size: 36px;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+
+    .right_feature h3 {
+      font-weight: 600;
+      font-size: 22px;
+      color: rgb(31, 128, 173);
+      margin: 0.5rem 0;
+      text-align: left;
+    }
+
+    .right_feature p {
+      font-size: 16px;
+      margin: 0.25rem 0;
+      display: flex;
+      /* align-items: center; */
+      gap: 0.5rem;
+      text-align: left;
+      flex-wrap: nowrap;
+      /* prevent wrapping icon-text */
+    }
+
+    .right_feature p i {
+      margin-top: .4rem;
+      color: #8be2b8;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+      .feature_outer {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left_feature,
+      .right_feature {
+        flex: 1 1 100%;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+      }
+
+      .right_feature h2,
+      .right_feature h3,
+      .right_feature p {
+        text-align: center;
+      }
+
+      .right_feature p {
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+    }
+
+
+    /*  ----------------------------------------= ABOUT =-----------------------------------------  */
+    .about-features {
+      /* background: #2b383b; */
+      /* color: #fff; */
+      padding: 20px 0px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-features svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .list-features {
+      background: #2b383b;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 15px 30px;
+
+    }
+
+    .title p {
+      font-size: 26px;
+      color: #dfa962;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .title h3 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .first,
+    .second {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .first>div,
+    .second>div {
+      background: #344447;
+      border-radius: 15px;
+      padding: 20px;
+      flex: 1 1 250px;
+      max-width: 320px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .first>div:hover,
+    .second>div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .first img,
+    .second img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+      object-fit: contain;
+      /* background-color: red; */
+      filter: invert(1);
+      box-shadow: rgb(0, 0, 0) 0px 0px 9px 0px;
+      border-radius: 2px;
+      border-radius: 50%;
+    }
+
+    .second .four-img img {
+      padding: 10px;
+    }
+
+    .first h5,
+    .second h5 {
+      font-size: 20px;
+      color: #00c9a7;
+      margin-bottom: 10px;
+    }
+
+    .first p,
+    .second p {
+      font-size: 15px;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    .wave-1{
+      margin-top: -2px;
+    }
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+
+      .first>div,
+      .second>div {
+        max-width: 100%;
+      }
+
+      .title h3 {
+        font-size: 26px;
+      }
+    }
+
+
+    /* --------------------------------------------= Process bar styling =---------------------------------------------- */
+    .progress-section {
+      margin-top: -3rem;
+      padding: 80px 20px 80px 20px;
+      background: linear-gradient(135deg, #e9f0ff, #f6faff);
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Flexbox layout */
+    .progress-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Each box style */
+    .progress-box {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 30px 25px;
+      width: 240px;
+      min-height: 200px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      /* Hidden before visible */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    /* Visible state with animation */
+    .progress-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Percentage text */
+    .percentage {
+      font-size: 3rem;
+      font-weight: 600;
+      color: #0056d2;
+      margin-bottom: 12px;
+    }
+
+    /* Descriptive text */
+    .progress-box p {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 768px) {
+      .progress-box {
+        width: 100%;
+        max-width: 90%;
+      }
+    }
+
+    /* ------------------ ==================footer===========================------------- */
+    /* ! Footer */
+    footer {
+      background-color: #292829ef;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    .social-links1 {
+      margin-top: 0.75rem;
+    }
+
+    .social-links1 a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .social-links1 a:hover {
+      color: #4CAF50;
+    }
+
+    /* Responsive Hero Text */
+    @media (max-width: 768px) {
+      .hero-content1 h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content1 p {
+        font-size: 1rem;
+      }
+
+      .nav-links1 {
+        display: none;
+      }
+    }
+
+    /* -------------------------------- footer end ============================================================ */
+  </style>
+</head>
+
+
+
+
+<body>
+
+  <div class="login-body">
+    <!-- ------------------------------------navbar --------------------------------- -->
+    <nav class="navbar">
+      <div class="container navbar-content">
+        <a href="#" class="navbar-brand"><span>RESUME</span> PARSER</a>
+
+        <!-- Hamburger toggle button -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+          <span class="hamburger"></span>
+        </button>
+
+        <div class="nav-links" id="nav-menu">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active');
+
+        // Update aria-expanded for accessibility
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+        navToggle.setAttribute('aria-expanded', !expanded);
+      });
+
+    </script>
+
+
+    <!-- -----------------------------------------------hero section --------------------------- -->
+
+    <section class="hero-section1">
+      <div class="container1 hero-flex1">
+
+        <!-- Left Side: Text Content -->
+        <div class="hero-text1">
+          <h1>Modern Resume Parsing System</h1>
+          <p>Transform your hiring process with our advanced resume parsing technology</p>
+          <a href="/upload" class="cta-button1">Get Started</a>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="hero-image1">
+          <!-- <img src="{{ url_for('static', filename='images/i3.png') }}" alt="Hero Image"> -->
+          <img src="/static/images/i3.png" alt="">
+        </div>
+
+      </div>
+    </section>
+
+    <div class="custom-shape-divider-bottom-1747491087">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25" class="shape-fill"></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5" class="shape-fill"></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ----------------------- ----------------------- grid ------------ ----------------------------------- -->
+
+  <section class="grid_card">
+    <div class="outer">
+      <h3 class="outer_head">Resume Parser</h3>
+      <p class="outer_text">
+        Leverage Neural Networks to extract meaningful insights from Resumes and Job Descriptions for smarter talent
+        matching
+      </p>
+    </div>
+    <div class="outer">
+      <h3 class="outer_head">Job Parser</h3>
+      <p class="outer_text">
+        Utilizes NLP and Machine learning to parse job postings, extracting over 32+ detailed parameters including skills
+      </p>
+    </div>
+    <div class="outer">
+      <h3 class="outer_head">Validate Contact Info</h3>
+      <p class="outer_text">
+        Ensure accuracy of contact details by validating email addresses and phone numbers in real time
+      </p>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------ section  features ---------------------------   -- -->
+  <section class="features">
+    <div class="feature_outer">
+      <div class="left_feature">
+        <div class="carousel-track">
+          <img src="/static/images/i2.png" alt="">
+
+        </div>
+      </div>
+
+      <div class="right_feature">
+        <h2>Use <span>Job Parser</span> for</h2>
+        <h3>apples-to-apples comparision</h3>
+        <p><i class="fa-solid fa-circle-check"></i>ML algorithm understands the context of the Job/Requisition and
+          translates the intent</p>
+        <p><i class="fa-solid fa-circle-check"></i> Convert unstructured job content to a structured comparable
+          requirements</p>
+        <p><i class="fa-solid fa-circle-check"></i> Automatically build a contextual query that can run against any
+          external job boards to fetch top candidates
+        </p>
+        <p><i class="fa-solid fa-circle-check"></i> Increase accuracy of matching with parsed job and candidate data
+          </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------------- ABOUT FEATUES -------------------------------------------->
+  <section>
+    <div class="about-features">
+      <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 490" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+            <stop stop-color="#2b383b" offset="0%"></stop>
+            <stop stop-color="#2b383b" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)"
+          d="M0,147L240,196C480,245,960,343,1440,383.8C1920,425,2400,408,2880,367.5C3360,327,3840,261,4320,245C4800,229,5280,261,5760,277.7C6240,294,6720,294,7200,294C7680,294,8160,294,8640,310.3C9120,327,9600,359,10080,318.5C10560,278,11040,163,11520,130.7C12000,98,12480,147,12960,196C13440,245,13920,294,14400,334.8C14880,376,15360,408,15840,351.2C16320,294,16800,147,17280,81.7C17760,16,18240,33,18720,32.7C19200,33,19680,16,20160,8.2C20640,0,21120,0,21600,40.8C22080,82,22560,163,23040,220.5C23520,278,24000,310,24480,326.7C24960,343,25440,343,25920,294C26400,245,26880,147,27360,106.2C27840,65,28320,82,28800,89.8C29280,98,29760,98,30240,147C30720,196,31200,294,31680,343C32160,392,32640,392,33120,367.5C33600,343,34080,294,34320,269.5L34560,245L34560,490L34320,490C34080,490,33600,490,33120,490C32640,490,32160,490,31680,490C31200,490,30720,490,30240,490C29760,490,29280,490,28800,490C28320,490,27840,490,27360,490C26880,490,26400,490,25920,490C25440,490,24960,490,24480,490C24000,490,23520,490,23040,490C22560,490,22080,490,21600,490C21120,490,20640,490,20160,490C19680,490,19200,490,18720,490C18240,490,17760,490,17280,490C16800,490,16320,490,15840,490C15360,490,14880,490,14400,490C13920,490,13440,490,12960,490C12480,490,12000,490,11520,490C11040,490,10560,490,10080,490C9600,490,9120,490,8640,490C8160,490,7680,490,7200,490C6720,490,6240,490,5760,490C5280,490,4800,490,4320,490C3840,490,3360,490,2880,490C2400,490,1920,490,1440,490C960,490,480,490,240,490L0,490Z">
+        </path>
+      </svg>
+
+      <div class="list-features">
+        <div class="title">
+          <p class="list-p">Parsers</p>
+          <h3>Why Data Recruitment parser?</h3>
+        </div>
+
+        <div class="first">
+          <div class="one">
+            <!-- <i class="fa-solid fa-brain"></i> -->
+            <img src="/static/images/b2.png" alt="">
+            <h5>Intelligence</h5>
+            <p>Continually learns and adopts from a diverse, 200+ sources of external & internal corpus of data</p>
+          </div>
+
+          <div class="two">
+            <!-- <i class="fa-solid fa-bullseye-arrow"></i> -->
+            <img src="/static/images/t1.png" alt="">
+
+            <h5>Accuracy</h5>
+            <p>Extract 90+ attributes; insights like Recently & Past Used Skills, Known Skills,
+              Loyalty, etc. at 85% accuracy</p>
+          </div>
+
+          <div class="three">
+            <!-- <i class="fa-regular fa-circle-bolt"></i> -->
+            <img src="/static/images/s1.png" alt="">
+
+            <h5>Speed</h5>
+            <p>Parse any profile within 0.5 seconds with output ready for visualization</p>
+          </div>
+        </div>
+
+        <div class="second">
+          <div class="four-img">
+            <!-- <i class="fa-solid fa-files"></i> -->
+            <img src="/static/images/i33.png" alt="">
+
+            <h5>Input Formats</h5>
+            <p>doc, docx, pdf, rtf, txt, ods, odt, ott, htm, html, xls, xlsx</p>
+          </div>
+
+          <div class="five">
+            <img src="/static/images/o2.png" alt="">
+
+            <h5>Output Formats</h5>
+            <p>Parsed content in standard formats like CSV or any custom formats using API connectors</p>
+          </div>
+
+          <div class="six">
+            <img src="/static/images/a2.png" alt="">
+
+            <h5>ATS Integration</h5>
+            <p>Integrate easily with your in-house or any 3rd party ATS</p>
+          </div>
+        </div>
+
+      </div>
+
+      <svg id="wave-1" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 340" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+            <stop stop-color="rgb(43, 56, 59)" offset="0%"></stop>
+            <stop stop-color="rgb(43, 56, 59)" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)"
+          d="M0,272L240,243.7C480,215,960,159,1440,153C1920,147,2400,193,2880,187C3360,181,3840,125,4320,96.3C4800,68,5280,68,5760,62.3C6240,57,6720,45,7200,85C7680,125,8160,215,8640,260.7C9120,306,9600,306,10080,260.7C10560,215,11040,125,11520,124.7C12000,125,12480,215,12960,215.3C13440,215,13920,125,14400,79.3C14880,34,15360,34,15840,68C16320,102,16800,170,17280,187C17760,204,18240,170,18720,170C19200,170,19680,204,20160,198.3C20640,193,21120,147,21600,130.3C22080,113,22560,125,23040,158.7C23520,193,24000,249,24480,266.3C24960,283,25440,261,25920,260.7C26400,261,26880,283,27360,283.3C27840,283,28320,261,28800,260.7C29280,261,29760,283,30240,277.7C30720,272,31200,238,31680,198.3C32160,159,32640,113,33120,119C33600,125,34080,181,34320,209.7L34560,238L34560,340L34320,340C34080,340,33600,340,33120,340C32640,340,32160,340,31680,340C31200,340,30720,340,30240,340C29760,340,29280,340,28800,340C28320,340,27840,340,27360,340C26880,340,26400,340,25920,340C25440,340,24960,340,24480,340C24000,340,23520,340,23040,340C22560,340,22080,340,21600,340C21120,340,20640,340,20160,340C19680,340,19200,340,18720,340C18240,340,17760,340,17280,340C16800,340,16320,340,15840,340C15360,340,14880,340,14400,340C13920,340,13440,340,12960,340C12480,340,12000,340,11520,340C11040,340,10560,340,10080,340C9600,340,9120,340,8640,340C8160,340,7680,340,7200,340C6720,340,6240,340,5760,340C5280,340,4800,340,4320,340C3840,340,3360,340,2880,340C2400,340,1920,340,1440,340C960,340,480,340,240,340L0,340Z">
+        </path>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-----------------------------=============Progress bar=============================--------------------------- -->
+  <section class="progress-section" id="progress">
+    <div class="progress-container">
+      <div class="progress-box">
+        <span class="percentage" data-target="80">0%</span>
+        <p>Effort & Time<br>Reduction in screening resumes</p>
+      </div>
+      <div class="progress-box">
+        <span class="percentage" data-target="93">0%</span>
+        <p>Accuracy<br>in Resume Parsing</p>
+      </div>
+      <div class="progress-box">
+        <span class="percentage" data-target="40">0%</span>
+        <p>Reduction<br>in Bounce Rate</p>
+      </div>
+      <div class="progress-box">
+        <span class="percentage" data-target="30">0%</span>
+        <p>Increase<br>in Applies</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const counters = document.querySelectorAll('.percentage');
+    const boxes = document.querySelectorAll('.progress-box');
+    let animated = false;
+
+    // Count animation function
+    const animateCount = () => {
+      counters.forEach((counter, index) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const speed = 20;
+        const increment = Math.ceil(target / 50);
+
+        const update = () => {
+          if (count < target) {
+            count += increment;
+            if (count > target) count = target;
+            counter.innerText = count + '%';
+            setTimeout(update, speed);
+          } else {
+            counter.innerText = target + '%';
+          }
+        };
+
+        // Start with delay for stagger effect
+        setTimeout(update, index * 400); // 300ms delay per box
+      });
+    };
+
+    // Observer to reveal boxes on scroll
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !animated) {
+        boxes.forEach((box, index) => {
+          setTimeout(() => {
+            box.classList.add('visible');
+          }, index * 400); // stagger visibility
+        });
+
+        animateCount();
+        animated = true;
+      }
+    }, { threshold: 0.4 });
+
+    observer.observe(document.querySelector('.progress-section'));
+  </script>
+
+
+  <!-- ---------------------------------------------Footer----------------------------------------------- -->
+  <footer>
+    <div class="container1">
+      <p>&copy; 2025 Resume Parsing System. All rights reserved.</p>
+      <div class="social-links1">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================================================== Scripts ======================================== -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

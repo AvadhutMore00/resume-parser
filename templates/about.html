@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Resume Parser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      color: black;
+    }
+
+    .login-body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d7f1f3;
+      min-height: 100vh;
+      padding-top: 4.5rem;
+    }
+
+    .containers {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .containers {
+        width: 95%;
+        padding: 0 1rem;
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      background: transparent;
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 1px solid white;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(58, 56, 56, 0.689);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .navbar-brand span {
+      color: goldenrod;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: black;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4CAF50;
+    }
+
+    /* Hamburger menu icon */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      color: black;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.664);
+      border-radius: 16px;
+    }
+
+    .about h2 {
+      color: #3f51b5;
+      font-size: 2.5rem;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .about h3 {
+      color: #3f51b5;
+      margin-top: 2rem;
+    }
+
+    .about p,
+    .about ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .about ul {
+      padding-left: 1.2rem;
+    }
+
+    .about ul li {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+      }
+
+      .about h2 {
+        font-size: 2rem;
+      }
+
+      .about p,
+      .about ul li {
+        font-size: 1rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background-color: #292829ef;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    .social-links1 {
+      margin-top: 0.75rem;
+    }
+
+    .social-links1 a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .social-links1 a:hover {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="containers navbar-content">
+      <a href="#" class="navbar-brand"><span>RESUME</span> PARSER</a>
+      <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+      <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <div class="login-body">
+    <section class="about">
+      <div class="containers">
+        <h2>About Us</h2>
+        <p>Welcome to <strong>Resume Parser</strong>, an advanced platform dedicated to simplifying the
+          process of resume parsing and job application management. Our powerful tools ensure efficient data
+          extraction, making recruitment processes faster and more accurate than ever before.</p>
+        <h3>Our Vision</h3>
+        <p>We strive to revolutionize the recruitment industry by offering smart, automated resume parsing solutions
+          that save time, reduce human error, and enhance decision-making. We aim to empower HR teams, recruiters,
+          and job seekers by enabling seamless connections through intelligent resume parsing technology.</p>
+        <h3>Our Mission</h3>
+        <p>Our mission is to provide an innovative platform that automates the extraction of essential data from
+          resumes, creating structured, searchable profiles that make hiring more efficient. By leveraging AI and
+          NLP technologies, we help companies find the best candidates in less time and with greater precision.</p>
+        <h3>What We Do</h3>
+        <ul>
+          <li><strong>Resume Parsing:</strong> Automatically extracts relevant information...</li>
+          <li><strong>Data Structuring:</strong> Organizes parsed data into structured formats...</li>
+          <li><strong>ATS Integration:</strong> Seamlessly connects with HR tools...</li>
+          <li><strong>AI-Powered Search:</strong> Helps recruiters find the best candidates quickly.</li>
+        </ul>
+        <h3>Our Core Values</h3>
+        <p>At <strong>Resume Parser</strong>, we are driven by a commitment to innovation, precision, and
+          reliability. These principles guide us in building tools that meet the needs of modern recruiters and job
+          seekers.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container1">
+      <p>&copy; 2025 Resume Parsing System. All rights reserved.</p>
+      <div class="social-links1">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("show");
+    }
+  </script>
+
+</body>
+
+</html>
